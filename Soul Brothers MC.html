@@ -1,0 +1,495 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Soul Brothers MC</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=Pirata+One&family=Special+Elite&display=swap">
+<style>
+/* Concept : un dossier de club en noir et orange. Un patch trois pièces ouvre le site,
+   le reste reste sobre : texte aligné à gauche, filets cousus orange, une page par rubrique. */
+:root{
+  --asphalt:#0d0c0b;
+  --coal:#171412;
+  --line:#2c2622;
+  --bone:#ece3d3;
+  --ash:#a79d8f;
+  --orange:#ff6a13;
+  --orange-deep:#b8480b;
+  --ember:#2a1608;
+  --display:"Pirata One","UnifrakturCook",Georgia,serif;
+  --body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cond:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
+  --type:"Special Elite","Courier New",monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:auto}
+body{margin:0;background:var(--asphalt);color:var(--bone);font:400 1.0625rem/1.65 var(--body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--asphalt);z-index:30}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:.005em}
+h1{font-size:clamp(2.7rem,7.2vw,5.3rem)}
+h2{font-size:clamp(2.5rem,5.6vw,4rem)}
+h3{font-size:clamp(1.7rem,3.4vw,2.1rem)}
+p{margin:0;max-width:62ch}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+
+/* En-tête */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--asphalt);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;flex-wrap:wrap;gap:4px 28px;padding-block:8px 0}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-size:1.75rem;line-height:1;text-decoration:none;color:var(--bone);padding-bottom:8px}
+.brand svg{width:30px;height:30px;color:var(--orange);flex:none}
+.nav{display:flex;gap:0 22px;margin-left:auto;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{font:600 .98rem/1 var(--cond);letter-spacing:.09em;text-transform:uppercase;text-decoration:none;color:var(--ash);padding:16px 0 13px;border-bottom:3px solid transparent;white-space:nowrap}
+.nav a:hover{color:var(--bone)}
+.nav a[aria-current="page"]{color:var(--orange);border-bottom-color:var(--orange)}
+
+/* Pages */
+.page{padding-block:clamp(40px,7vw,84px) clamp(40px,6vw,72px)}
+.head{display:flex;flex-direction:column;gap:20px}
+.head::after{content:"";order:1;width:min(220px,50%);border-top:2px dashed var(--orange-deep)}
+.head h2{order:0}
+.head .lede{order:2}
+.lede{font-size:1.2rem;max-width:60ch}
+.sub{color:var(--ash)}
+
+/* Accueil */
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px 56px;align-items:center}
+.hero>*{min-width:0}
+.hero .lede{margin-top:24px}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{font:700 1rem/1 var(--cond);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:15px 22px;border:2px solid var(--orange);border-radius:4px;color:var(--orange)}
+.btn:hover{background:var(--ember)}
+.btn.solid{background:var(--orange);color:var(--asphalt)}
+.btn.solid:hover{background:#ff8238}
+.patch{display:block;width:100%;max-width:520px;height:auto;margin-inline:auto}
+.patch .rk{fill:var(--coal);stroke:var(--orange);stroke-width:4;stroke-linejoin:round}
+.patch .rt{font-family:var(--display);font-size:40px;fill:var(--orange);letter-spacing:1px}
+.patch .em{fill:var(--orange)}
+.patch .st{fill:none;stroke:var(--asphalt)}
+.patch .wheel{transform-box:fill-box;transform-origin:center;animation:roll 1.9s cubic-bezier(.15,.7,.2,1) both}
+@keyframes roll{from{transform:rotate(-220deg)}to{transform:none}}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px 28px;margin:56px 0 0;padding:24px 0;border-block:1px solid var(--line)}
+.facts dt{font:.85rem/1.3 var(--type);color:var(--ash)}
+.facts dd{margin:4px 0 0;font:700 1.6rem/1.15 var(--cond);letter-spacing:.03em;text-transform:uppercase}
+.index{list-style:none;margin:48px 0 0;padding:0;border-top:1px solid var(--line)}
+.index a{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr) auto;gap:4px 24px;align-items:baseline;padding:18px 6px;border-bottom:1px solid var(--line);text-decoration:none}
+.index b{font:400 2rem/1.1 var(--display);color:var(--bone)}
+.index span{color:var(--ash)}
+.index i{font:700 .95rem/1 var(--cond);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+.index a:hover{background:var(--ember)}
+.index a:hover b{color:var(--orange)}
+
+/* Histoire */
+.timeline{list-style:none;margin:52px 0 0;padding:0}
+.timeline li{position:relative;display:grid;grid-template-columns:11rem minmax(0,1fr);gap:6px 40px;padding-bottom:46px}
+.timeline li:last-child{padding-bottom:0}
+.timeline li::before{content:"";position:absolute;left:calc(11rem + 19px);top:10px;bottom:-10px;border-left:2px dashed var(--orange-deep)}
+.timeline li:last-child::before{display:none}
+.timeline li::after{content:"";position:absolute;left:calc(11rem + 13px);top:10px;width:14px;height:14px;background:var(--orange);transform:rotate(45deg)}
+.timeline time{font:1.05rem/1.4 var(--type);color:var(--orange);text-align:right;padding-top:2px}
+.timeline .body{display:flex;flex-direction:column;gap:10px;min-width:0}
+
+/* Chapters */
+.notice{margin-top:20px}
+.grp{margin-top:52px;font-size:1.9rem}
+.chapters{list-style:none;margin:12px 0 0;padding:0;border-top:1px solid var(--line)}
+.chapters li{display:flex;align-items:center;gap:18px;padding:16px 4px;border-bottom:1px solid var(--line)}
+.chapters li::before{content:"";flex:none;width:10px;height:10px;background:var(--orange);transform:rotate(45deg)}
+.chapters b{font:400 clamp(1.9rem,4.4vw,2.7rem)/1.1 var(--display)}
+.chapters small{margin-left:auto;font:600 .95rem/1 var(--cond);letter-spacing:.1em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+
+/* Objectifs */
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px;margin-top:52px}
+.cols>*{min-width:0}
+.goals{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
+.goals li{position:relative;padding:12px 0 12px 30px;border-bottom:1px solid var(--line)}
+.goals li::before{content:"";position:absolute;left:3px;top:1.25em;width:9px;height:9px;background:var(--orange);transform:rotate(45deg)}
+.pb{background:var(--coal);border:2px solid var(--orange);border-radius:8px;outline:1.5px dashed rgba(255,106,19,.5);outline-offset:-8px}
+.note{margin-top:48px;padding:20px 26px;max-width:640px}
+
+/* Patchs */
+.ranks{list-style:none;margin:48px 0 0;padding:0;display:grid;gap:14px}
+.rank{display:grid;grid-template-columns:minmax(0,19rem) minmax(0,1fr);gap:8px 32px;align-items:center}
+.rank p{color:var(--ash)}
+.rocker{display:block;text-align:center;font:400 1.85rem/1 var(--display);color:var(--orange);background:var(--coal);border:2px solid var(--orange);border-radius:8px;padding:15px 18px 12px;outline:1.5px dashed rgba(255,106,19,.5);outline-offset:-7px}
+.rocker.full{background:var(--orange);color:var(--asphalt);outline-color:rgba(13,12,11,.55)}
+.rocker.pro{background:transparent;border:2px dashed var(--orange-deep);color:var(--ash);outline:0}
+
+/* Membres */
+.roster{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:16px}
+.tag{display:flex;flex-direction:column;justify-content:space-between;gap:22px;min-height:124px;padding:20px 18px}
+.tag b{font:700 1.9rem/1 var(--cond);letter-spacing:.08em;text-transform:uppercase;overflow-wrap:anywhere}
+.tag small{font:.85rem/1.2 var(--type);color:var(--ash)}
+.tag.lead small{color:var(--orange)}
+.tag.open{background:transparent;border:2px dashed var(--line);outline:0;color:var(--ash)}
+
+/* Expériences RP */
+.exp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:48px}
+.exp article{display:flex;flex-direction:column;gap:16px;padding:30px 28px;min-width:0}
+.exp h3{font-size:clamp(2.2rem,5vw,3rem)}
+.exp .role{font:.9rem/1.2 var(--type);color:var(--orange)}
+.empty{border:2px dashed var(--line);border-radius:6px;padding:22px 20px;min-height:140px;color:var(--ash)}
+
+/* Motivations */
+.letter{margin-top:48px;max-width:760px;padding:clamp(26px,4.5vw,48px)}
+.letter p{margin-bottom:1.15em}
+.letter .big{font-size:1.4rem;line-height:1.45}
+.sign{font:1.5rem/1.2 var(--type);color:var(--orange);margin-top:8px}
+
+/* Pagination et pied de page */
+.pager{display:flex;gap:16px;padding-block:28px 56px;border-top:1px solid var(--line)}
+.pager a{display:flex;flex-direction:column;gap:2px;text-decoration:none;min-width:0}
+.pager span{font:.85rem/1.3 var(--type);color:var(--ash)}
+.pager b{font:400 1.9rem/1.1 var(--display);color:var(--bone)}
+.pager a:hover b{color:var(--orange)}
+.pager .next{margin-left:auto;text-align:right}
+.foot{border-top:1px solid var(--line);color:var(--ash);font-size:.95rem}
+.foot .wrap{padding-block:26px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px}
+
+@media (max-width:900px){
+  .nav{margin-left:0;flex:1 1 100%;order:3;margin-inline:0}
+  .brand{padding-bottom:0}
+}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .patch{max-width:430px}
+  .cols,.exp{grid-template-columns:1fr}
+  .rank{grid-template-columns:1fr}
+  .index a{grid-template-columns:1fr}
+  .index i{display:none}
+}
+@media (max-width:700px){
+  .timeline li{grid-template-columns:1fr;padding-left:36px}
+  .timeline li::before{left:6px}
+  .timeline li::after{left:0}
+  .timeline time{text-align:left;padding-top:0}
+  .chapters small{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .patch .wheel{animation:none}
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#accueil" data-go="accueil">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="3"/><path d="M16 5v22M5 16h22M8.2 8.2l15.6 15.6M23.8 8.2L8.2 23.8" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="16" cy="16" r="3.4" fill="currentColor"/></svg>
+      Soul Brothers
+    </a>
+    <nav class="nav" aria-label="Pages du dossier">
+      <a href="#accueil" data-go="accueil">Accueil</a>
+      <a href="#histoire" data-go="histoire">Histoire</a>
+      <a href="#chapters" data-go="chapters">Chapters</a>
+      <a href="#objectifs" data-go="objectifs">Objectifs</a>
+      <a href="#patchs" data-go="patchs">Patchs</a>
+      <a href="#membres" data-go="membres">Membres</a>
+      <a href="#experiences" data-go="experiences">Expériences RP</a>
+      <a href="#motivations" data-go="motivations">Motivations</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ACCUEIL -->
+  <section class="page" id="p-accueil">
+    <div class="hero">
+      <div>
+        <h1>Un club métis, né à Davis en 1967.</h1>
+        <p class="lede">Dossier de présentation du Soul Brothers Motorcycle Club pour le serveur GTA 5 RP. Des balades, un bar, un club qui vit tous les soirs, et des affaires moins légales.</p>
+        <div class="btns">
+          <a class="btn solid" href="#histoire" data-go="histoire">Lire l'histoire</a>
+          <a class="btn" href="#membres" data-go="membres">Voir les membres</a>
+        </div>
+      </div>
+      <svg class="patch" viewBox="30 70 460 440" role="img" aria-label="Patch du Soul Brothers MC : une roue de moto entre les bandeaux Soul Brothers et Los Santos">
+        <defs>
+          <path id="arcTop" d="M 90 244.4 A 176 176 0 0 1 430 244.4"/>
+          <path id="arcBot" d="M 66.8 341.8 A 200 200 0 0 0 453.2 341.8"/>
+        </defs>
+        <path class="rk" d="M 62.7 218.2 A 210 210 0 0 1 457.3 218.2 L 415 233.6 A 165 165 0 0 0 105 233.6 Z"/>
+        <path class="rk" d="M 62.7 361.8 A 210 210 0 0 0 457.3 361.8 L 415 346.4 A 165 165 0 0 1 105 346.4 Z"/>
+        <text class="rt" text-anchor="middle"><textPath href="#arcTop" startOffset="50%">Soul Brothers</textPath></text>
+        <text class="rt" text-anchor="middle"><textPath href="#arcBot" startOffset="50%">Los Santos</textPath></text>
+        <circle class="em" cx="260" cy="290" r="150"/>
+        <circle class="st" cx="260" cy="290" r="141" stroke-width="2" stroke-dasharray="7 6"/>
+        <g class="wheel">
+          <circle class="st" cx="260" cy="290" r="104" stroke-width="15"/>
+          <circle cx="260" cy="290" r="104" fill="none" stroke="var(--orange)" stroke-width="3" stroke-dasharray="3 7"/>
+          <circle class="st" cx="260" cy="290" r="84" stroke-width="4"/>
+          <g class="st" stroke-width="3">
+            <line x1="260" y1="206" x2="260" y2="374"/>
+            <line x1="260" y1="206" x2="260" y2="374" transform="rotate(30 260 290)"/>
+            <line x1="260" y1="206" x2="260" y2="374" transform="rotate(60 260 290)"/>
+            <line x1="260" y1="206" x2="260" y2="374" transform="rotate(90 260 290)"/>
+            <line x1="260" y1="206" x2="260" y2="374" transform="rotate(120 260 290)"/>
+            <line x1="260" y1="206" x2="260" y2="374" transform="rotate(150 260 290)"/>
+          </g>
+        </g>
+        <circle cx="260" cy="290" r="24" fill="var(--asphalt)"/>
+        <text x="260" y="298" text-anchor="middle" fill="var(--orange)" style="font:700 22px var(--cond);letter-spacing:1px">MC</text>
+      </svg>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Fondation</dt><dd>1967</dd></div>
+      <div><dt>Origine</dt><dd>Davis, Los Santos</dd></div>
+      <div><dt>Chapters connus</dt><dd>6</dd></div>
+      <div><dt>Membres</dt><dd>7 + 2 places</dd></div>
+    </dl>
+
+    <ul class="index">
+      <li><a href="#histoire" data-go="histoire"><b>Histoire</b><span>Des premières balades de 1964 aux descentes de police de 2014.</span><i>Ouvrir</i></a></li>
+      <li><a href="#chapters" data-go="chapters"><b>Chapters</b><span>Les sections du club à travers les États-Unis.</span><i>Ouvrir</i></a></li>
+      <li><a href="#objectifs" data-go="objectifs"><b>Objectifs</b><span>Ce que le club veut construire, côté civil et côté illégal.</span><i>Ouvrir</i></a></li>
+      <li><a href="#patchs" data-go="patchs"><b>Patchs</b><span>Les huit rangs, du président au prospect.</span><i>Ouvrir</i></a></li>
+      <li><a href="#membres" data-go="membres"><b>Membres</b><span>Le roster du club et les deux places à pourvoir.</span><i>Ouvrir</i></a></li>
+      <li><a href="#experiences" data-go="experiences"><b>Expériences RP</b><span>Le parcours des leads, Akhy et Raisain.</span><i>Ouvrir</i></a></li>
+      <li><a href="#motivations" data-go="motivations"><b>Motivations</b><span>Notre engagement envers le serveur.</span><i>Ouvrir</i></a></li>
+    </ul>
+  </section>
+
+  <!-- HISTOIRE -->
+  <section class="page" id="p-histoire" hidden>
+    <div class="head">
+      <h2>Histoire du MC</h2>
+      <p class="lede">Les grandes dates du club, de la fondation à Davis jusqu'aux événements de 2013 et 2014.</p>
+    </div>
+    <ol class="timeline">
+      <li>
+        <time>Vers 1964</time>
+        <div class="body">
+          <h3>Les premières routes</h3>
+          <p>Avant la fondation, un petit groupe d'amis sillonne déjà les routes de San Andreas depuis environ trois ans.</p>
+        </div>
+      </li>
+      <li>
+        <time>1967</time>
+        <div class="body">
+          <h3>Fondation à Davis</h3>
+          <p>Le Soul Brothers Motorcycle Club est officiellement fondé à Davis, dans le sud de Los Santos. Ce qui le rend unique à l'époque, c'est qu'il s'agit dès le début d'un club métis, avec un mélange de membres noirs et blancs. À la fin des années 1960, c'était inhabituel pour un club de motards hors-la-loi.</p>
+        </div>
+      </li>
+      <li>
+        <time>Fête du Travail 1967</time>
+        <div class="body">
+          <h3>La première course officielle</h3>
+          <p>57 membres participent à la première course officielle du club. Les motards traversent les quartiers de Davis, Strawberry et South Los Santos, et marquent ainsi les débuts officiels de leur organisation dans les rues de la ville.</p>
+        </div>
+      </li>
+      <li>
+        <time>6 octobre 2013</time>
+        <div class="body">
+          <h3>La nuit du club-house</h3>
+          <p>Une fête a lieu au club-house du chapitre Soul Brothers de Davis, avec des centaines de personnes présentes. Juste avant 2 heures du matin, des coups de feu sont tirés. Les tirs se déplacent à l'extérieur du club-house et dans les rues environnantes. Dejuan Gladney, 18 ans, est tué. Une douzaine d'autres personnes sont blessées.</p>
+          <p class="sub">On ne pense pas que Dejuan Gladney était membre du club, et aucun rapport n'indique que l'un des tireurs était membre des Soul Brothers.</p>
+        </div>
+      </li>
+      <li>
+        <time>Janvier 2014</time>
+        <div class="body">
+          <h3>Les descentes de police</h3>
+          <p>Le président de la section de Davis, Michael Taylor, est arrêté à la suite de descentes de police. Cinq fusils d'assaut, trois armes de poing, plus de 1 000 cartouches et plusieurs chargeurs de grande capacité sont découverts dans le cadre de l'opération. Envoyé à la prison du comté de Fresno, il est rapidement libéré en raison de la surpopulation.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- CHAPTERS -->
+  <section class="page" id="p-chapters" hidden>
+    <div class="head">
+      <h2>Chapters</h2>
+      <p class="lede">Après avoir créé des sections en Californie pendant ses premières années, le Soul Brothers Motorcycle Club compte désormais des sections réparties à travers les États-Unis.</p>
+    </div>
+    <p class="notice sub">Voici les emplacements connus. Chaque section porte le nom Soul Brothers MC, suivi de sa ville.</p>
+
+    <h3 class="grp">San Andreas</h3>
+    <ul class="chapters">
+      <li><b>South Los Santos</b></li>
+      <li><b>Las Venturas</b></li>
+      <li><b>Paleto Bay</b></li>
+    </ul>
+
+    <h3 class="grp">Au-delà de San Andreas</h3>
+    <ul class="chapters">
+      <li><b>Vice City</b></li>
+      <li><b>North Yankton</b></li>
+      <li><b>Liberty City</b></li>
+    </ul>
+  </section>
+
+  <!-- OBJECTIFS -->
+  <section class="page" id="p-objectifs" hidden>
+    <div class="head">
+      <h2>Les objectifs du MC</h2>
+      <p class="lede">Ce que le club veut construire à Los Santos, des soirées au club-house jusqu'aux affaires plus risquées.</p>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Scènes civiles</h3>
+        <ul class="goals">
+          <li>Ouvrir un bar</li>
+          <li>Organiser et encadrer des balades à moto</li>
+          <li>Rassemblements moto et barbecues sur le parking du club</li>
+          <li>Mouvements politiques pour la cause afro</li>
+          <li>Faire vivre le club tous les soirs</li>
+          <li>Visites en bande dans les bars</li>
+          <li>Stands promotionnels du MC : nourriture, boissons et produits dérivés</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Scènes illégales</h3>
+        <ul class="goals">
+          <li>Braquages de supérettes, de banques, de petites boutiques et autres</li>
+          <li>Trafics de stups</li>
+          <li>Guerres de territoire</li>
+          <li>Extorsions de fonds</li>
+          <li>Substitution de preuves ou de témoins compromettants</li>
+          <li>Entreprendre plusieurs business de grande envergure</li>
+          <li>Concurrencer les autres MC</li>
+          <li>Organiser différentes activités avec des paris</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note pb">Les autres objectifs figurent dans les BG des membres du groupe.</p>
+  </section>
+
+  <!-- PATCHS -->
+  <section class="page" id="p-patchs" hidden>
+    <div class="head">
+      <h2>Les patchs du club</h2>
+      <p class="lede">Huit rangs, du président au prospect. Chaque patch correspond à un rôle précis dans le club.</p>
+    </div>
+    <ul class="ranks">
+      <li class="rank"><span class="rocker">Président</span><p>Dirige le club et tranche les décisions.</p></li>
+      <li class="rank"><span class="rocker">Vice-président</span><p>Seconde le président et le remplace en son absence.</p></li>
+      <li class="rank"><span class="rocker">Sergent d'armes</span><p>Fait respecter les règles et veille à la sécurité du club.</p></li>
+      <li class="rank"><span class="rocker">Road Captain</span><p>Prépare les itinéraires et encadre les sorties moto.</p></li>
+      <li class="rank"><span class="rocker">Secrétaire</span><p>Tient les registres et la communication du club.</p></li>
+      <li class="rank"><span class="rocker">Trésorier</span><p>Gère la caisse du club.</p></li>
+      <li class="rank"><span class="rocker full">Full Patch</span><p>Membre à part entière, il porte les couleurs complètes du club.</p></li>
+      <li class="rank"><span class="rocker pro">Prospect</span><p>Candidat à l'essai, il doit faire ses preuves avant d'être patché.</p></li>
+    </ul>
+  </section>
+
+  <!-- MEMBRES -->
+  <section class="page" id="p-membres" hidden>
+    <div class="head">
+      <h2>Liste des membres</h2>
+      <p class="lede">Sept membres et deux places encore à définir.</p>
+    </div>
+    <ul class="roster">
+      <li class="tag pb lead"><b>Raisain</b><small>Lead</small></li>
+      <li class="tag pb"><b>RZK</b><small>Membre</small></li>
+      <li class="tag pb"><b>SVM</b><small>Membre</small></li>
+      <li class="tag pb"><b>Shadow</b><small>Membre</small></li>
+      <li class="tag pb"><b>Silow</b><small>Membre</small></li>
+      <li class="tag pb lead"><b>Akhy</b><small>Lead</small></li>
+      <li class="tag pb"><b>HAM7.7</b><small>Membre</small></li>
+      <li class="tag open"><b>À voir</b><small>Place ouverte</small></li>
+      <li class="tag open"><b>À voir</b><small>Place ouverte</small></li>
+    </ul>
+  </section>
+
+  <!-- EXPÉRIENCES RP -->
+  <section class="page" id="p-experiences" hidden>
+    <div class="head">
+      <h2>Expériences RP des leads</h2>
+      <p class="lede">Le parcours en jeu de rôle des deux leads du club.</p>
+    </div>
+    <div class="exp">
+      <article class="pb">
+        <h3>Akhy</h3>
+        <span class="role">Lead</span>
+        <div class="empty">Expérience RP à compléter.</div>
+      </article>
+      <article class="pb">
+        <h3>Raisain</h3>
+        <span class="role">Lead</span>
+        <div class="empty">Expérience RP à compléter.</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MOTIVATIONS -->
+  <section class="page" id="p-motivations" hidden>
+    <div class="head">
+      <h2>Motivations et remerciements</h2>
+      <p class="lede">Un mot à l'attention du staff du serveur.</p>
+    </div>
+    <div class="letter pb">
+      <p class="big">Merci pour votre temps investi dans la lecture de notre dossier Soul Brothers MC.</p>
+      <p>Nous sommes déterminés à contribuer au développement du plateau de jeu. Nous sommes chacun des joueurs très actifs et nous voulons créer un maximum de scènes, civiles comme illégales, ainsi qu'interagir avec chaque joueur du serveur.</p>
+      <p>C'est pour cela que nous avons décidé de vous proposer un nouveau projet sur le serveur. Par ailleurs, l'implantation du groupe permettra une nouvelle trame.</p>
+      <p>L'implication est l'un de nos atouts principaux, notamment grâce à notre présence quotidienne.</p>
+      <p>En espérant avoir une réponse positive de votre part !</p>
+      <p class="sign">Soul Brothers MC</p>
+    </div>
+  </section>
+
+  <nav class="pager" id="pager" aria-label="Navigation entre les pages"></nav>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Soul Brothers MC, dossier de présentation pour un serveur GTA 5 RP.</span>
+    <span>Los Santos, San Andreas</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var order = [
+    ["accueil", "Accueil"], ["histoire", "Histoire"], ["chapters", "Chapters"],
+    ["objectifs", "Objectifs"], ["patchs", "Patchs"], ["membres", "Membres"],
+    ["experiences", "Expériences RP"], ["motivations", "Motivations"]
+  ];
+  var ids = order.map(function (p) { return p[0]; });
+  var pages = {};
+  ids.forEach(function (id) { pages[id] = document.getElementById("p-" + id); });
+  var pager = document.getElementById("pager");
+  var navLinks = document.querySelectorAll(".nav a");
+
+  function link(i, cls, label) {
+    return '<a class="' + cls + '" href="#' + ids[i] + '" data-go="' + ids[i] + '"><span>' + label + '</span><b>' + order[i][1] + '</b></a>';
+  }
+
+  function show(id) {
+    if (ids.indexOf(id) < 0) { id = "accueil"; }
+    ids.forEach(function (k) { pages[k].hidden = (k !== id); });
+    navLinks.forEach(function (a) {
+      if (a.getAttribute("data-go") === id) { a.setAttribute("aria-current", "page"); }
+      else { a.removeAttribute("aria-current"); }
+    });
+    var i = ids.indexOf(id), html = "";
+    if (i > 0) { html += link(i - 1, "prev", "Page précédente"); }
+    if (i < ids.length - 1) { html += link(i + 1, "next", "Page suivante"); }
+    pager.innerHTML = html;
+    var active = document.querySelector('.nav a[aria-current="page"]');
+    if (active && active.scrollIntoView) {
+      try { active.scrollIntoView({ block: "nearest", inline: "center" }); } catch (e) {}
+    }
+  }
+
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest ? ev.target.closest("[data-go]") : null;
+    if (!a) { return; }
+    ev.preventDefault();
+    var id = a.getAttribute("data-go");
+    show(id);
+    try { history.replaceState(null, "", "#" + id); } catch (e) {}
+    window.scrollTo(0, 0);
+  });
+
+  window.addEventListener("hashchange", function () {
+    show(location.hash.replace("#", ""));
+    window.scrollTo(0, 0);
+  });
+
+  show(location.hash.replace("#", ""));
+})();
+</script>
+
+</body></html>
